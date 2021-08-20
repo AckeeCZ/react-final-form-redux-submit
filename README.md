@@ -1,4 +1,4 @@
-# Final form submit binding to redux
+# Final form submission binding to redux
 
 [![Tests](https://github.com/AckeeCZ/react-final-form-redux-submit/actions/workflows/test.yml/badge.svg)](https://github.com/AckeeCZ/react-final-form-redux-submit/actions/workflows/test.yml)
 
@@ -14,11 +14,11 @@ Final Form uses promises for submission. In case you use e.g. Redux Saga middlew
 
 ## Usage
 
-### Setup Redux Promise Listener
+### 1. Setup Redux Promise Listener
 
 First, you need to setup [Redux Promise Listener](https://github.com/erikras/redux-promise-listener#usage) and export its `promiseListener` object.
 
-### Create action types
+### 2. Create action types
 
 Then you create Redux action types that are called if a form is submitted. The package exports convenient helpers `createFormActionTypes` and `createFormActions` for that.
 
@@ -46,7 +46,7 @@ import { createFormActions } from 'react-final-form-redux-submit'
 const formActions = createFormActions(types);
 ```
 
-### Create submit hook and use it in a form
+### 3. Create submit hook and use it in a form
 
 First, you need to create a hook for form submission with a factory function. Then you use the hook in your form.
 
@@ -72,7 +72,7 @@ const MyForm: FunctionComponent<MyFormProps> = () => {
 };
 ```
 
-### React in a saga
+### 4. React in a saga
 
 Now when the form is submitted `FORM_SUBMIT` action is dispatched with form values in `payload` and Redux saga can react to it with e.g. `takeEvery` effect. The form submit handler won't resolve until `SUCCESS` or `FAILURE` action is dispatched. Final form handles the form state like `submitting` flag or `errors`.
 
@@ -93,7 +93,18 @@ function* handleFormSubmit(action: Action<FormValues>) {
 export default function* form() {
     yield takeEvery(formTypes.SUBMIT, handleFormSubmit);
 }
+```
 
 ## API
 
-TODO 
+### `createSubmitFormHook: (listener: ReduxPromiseListener) => (types: FormActionTypes) => Function`
+
+A factory function for creating the hook that accepts `FormActionTypes` and returns `onSubmit` handler that can be passed to `Form`.
+
+### `createFormActionTypes(formPrefix: string, modulePrefix?: string): FormActionTypes`
+
+An utility for creating `FormActionTypes` - an object with `SUBMIT`, `SUCCESS` and `FAILURE` action types.
+
+### `createFormActions(types: FormActionTypes): FormActions`
+
+An utility for creating `FormActions` for corresponding `FormActionTypes`.
