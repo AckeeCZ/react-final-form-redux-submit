@@ -1,12 +1,13 @@
 import { FORM_ERROR } from "final-form"
 import type { FormApi } from "final-form"
 
-const submitFormFactory =
-    <FormValues extends Record<string, any> = Record<string, any>>(
-        reduxAsyncHandler: (
-            values: FormValues,
-            form?: FormApi
-        ) => Promise<unknown>
+export type ReduxAsyncHandler<
+    FormValues extends unknown = Record<string, any>
+> = (values: FormValues, form?: FormApi) => Promise<unknown>
+
+export const submitFormFactory =
+    <FormValues extends unknown = Record<string, any>>(
+        reduxAsyncHandler: ReduxAsyncHandler<FormValues>
     ) =>
     async (
         values: FormValues,
@@ -27,5 +28,3 @@ const submitFormFactory =
             return error
         }
     }
-
-export default submitFormFactory

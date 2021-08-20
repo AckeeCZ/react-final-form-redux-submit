@@ -1,5 +1,5 @@
 import { FORM_ERROR } from "final-form"
-import submitFormFactory from "../submitFormFactory"
+import { submitFormFactory } from "../submitFormFactory"
 
 describe("submitForm handler", () => {
     const asyncHandler = jest.fn()
