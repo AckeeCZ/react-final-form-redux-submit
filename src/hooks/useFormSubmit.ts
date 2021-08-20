@@ -17,10 +17,11 @@ interface ReduxPromiseListener {
  */
 export const createFormSubmitHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     <FormValues extends unknown = Record<string, any>>(
         types: FormActionTypes,
         meta?: Record<string, any>
-    ): unknown => {
+    ) => {
         const { SUBMIT, SUCCESS, FAILURE } = types
         const onSubmit = useMemo(
             () =>
