@@ -31,7 +31,8 @@
         "clean": "rm -rf lib",
         "lint": "eslint src --ext .ts",
         "format": "prettier --config .prettierrc --write './src/**/*.ts'",
-        "test": "jest"
+        "test": "jest",
+        "version": "gitmoji-changelog && code --wait CHANGELOG.md && git add CHANGELOG.md"
     },
     "devDependencies": {
         "@types/jest": "^27.0.1",
@@ -39,6 +40,7 @@
         "@typescript-eslint/parser": "^4.29.2",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
+        "gitmoji-changelog": "^2.2.1",
         "jest": "^27.0.6",
         "onchange": "^7.1.0",
         "prettier": "^2.3.2",
