@@ -18,12 +18,14 @@ export type PayloadAction<
     payload: P
     type: T
 } & ([M] extends [never]
-    ? {}
+    ? // eslint-disable-next-line @typescript-eslint/ban-types
+      {}
     : {
           meta: M
       }) &
     ([E] extends [never]
-        ? {}
+        ? // eslint-disable-next-line @typescript-eslint/ban-types
+          {}
         : {
               error: E
           })
@@ -37,6 +39,6 @@ export interface FormActions<
     ) => PayloadAction<FormValues, string, Record<string, any> | undefined>
     submitSuccess: () => Action
     submitFailure: (
-        error: string | object
-    ) => PayloadAction<{ error?: string | object }>
+        error: string | Record<string, unknown>
+    ) => PayloadAction<{ error?: string | Record<string, unknown> }>
 }

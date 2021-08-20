@@ -2,7 +2,7 @@ import type { FormActionTypes, FormActions } from "./types"
 
 export const createFormActionTypes = (
     formPrefix: string,
-    modulePrefix: string = ""
+    modulePrefix = ""
 ): FormActionTypes => ({
     SUBMIT: `${modulePrefix}${modulePrefix ? "/" : ""}${formPrefix}_SUBMIT`,
     SUCCESS: `${modulePrefix}${modulePrefix ? "/" : ""}${formPrefix}_SUCCESS`,

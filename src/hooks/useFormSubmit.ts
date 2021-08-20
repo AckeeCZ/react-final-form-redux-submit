@@ -5,7 +5,7 @@ import { submitFormFactory, ReduxAsyncHandler } from "../services/utils"
 
 interface ReduxPromiseListener {
     createAsyncFunction: <FormValues extends unknown = Record<string, any>>(
-        config: object
+        config: Record<string, unknown>
     ) => {
         unsubscribe: () => void
         asyncFunction: ReduxAsyncHandler<FormValues>
@@ -20,7 +20,7 @@ export const createFormSubmitHook =
     <FormValues extends unknown = Record<string, any>>(
         types: FormActionTypes,
         meta?: Record<string, any>
-    ) => {
+    ): unknown => {
         const { SUBMIT, SUCCESS, FAILURE } = types
         const onSubmit = useMemo(
             () =>
