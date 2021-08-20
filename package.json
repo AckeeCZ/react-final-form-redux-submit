@@ -2,13 +2,14 @@
     "name": "react-final-form-redux-submit",
     "version": "0.1.0",
     "description": "\"Bindings for submitting a form with a Redux action\"",
-    "main": "lib/index.js",
+    "main": "lib/cjs/index.js",
+    "module": "lib/esm/index.js",
     "repository": "git@github.com:AckeeCZ/react-final-form-redux-submit.git",
     "author": {
         "name": "Jiří Zdvomka",
         "email": "zdvomka.j@gmail.com"
     },
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "homepage": "https://github.com/AckeeCZ/react-final-form-redux-submit",
     "bugs": "https://github.com/AckeeCZ/react-final-form-redux-submit",
     "keywords": [
@@ -20,5 +21,24 @@
     ],
     "engines": {
         "node": ">=14.17.0"
+    },
+    "scripts": {
+        "start": "yarn build && onchange 'src/**/*.ts' -- yarn rebuild",
+        "build": "yarn clean && yarn build:cjs && yarn build:esm",
+        "build:cjs": "tsc -p tsconfig-cjs.json",
+        "build:esm": "tsc -p tsconfig.json",
+        "rebuild": "yarn build:esm",
+        "clean": "rm -rf lib",
+        "lint": "eslint src --ext .ts",
+        "format": "prettier --config .prettierrc --write './src/**/*.ts'"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.29.2",
+        "@typescript-eslint/parser": "^4.29.2",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "onchange": "^7.1.0",
+        "prettier": "^2.3.2",
+        "typescript": "^4.3.5"
     }
 }

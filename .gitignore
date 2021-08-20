@@ -110,3 +110,6 @@ dist
 .nyc_output
 packages/*/dist
 packages/*/lib
+
+# Build
+lib
