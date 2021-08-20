@@ -1,0 +1,24 @@
+{
+    "name": "react-final-form-redux-submit",
+    "version": "0.1.0",
+    "description": "\"Bindings for submitting a form with a Redux action\"",
+    "main": "lib/index.js",
+    "repository": "git@github.com:AckeeCZ/react-final-form-redux-submit.git",
+    "author": {
+        "name": "Jiří Zdvomka",
+        "email": "zdvomka.j@gmail.com"
+    },
+    "license": "Apache 2.0",
+    "homepage": "https://github.com/AckeeCZ/react-final-form-redux-submit",
+    "bugs": "https://github.com/AckeeCZ/react-final-form-redux-submit",
+    "keywords": [
+        "react",
+        "form",
+        "final-form",
+        "redux",
+        "redux-saga"
+    ],
+    "engines": {
+        "node": ">=14.17.0"
+    }
+}
