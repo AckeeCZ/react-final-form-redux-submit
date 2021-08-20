@@ -6,9 +6,12 @@
     "module": "lib/esm/index.js",
     "repository": "git@github.com:AckeeCZ/react-final-form-redux-submit.git",
     "author": {
-        "name": "Jiří Zdvomka",
-        "email": "zdvomka.j@gmail.com"
+        "name": "Ackee",
+        "email": "frontend@ackee.cz"
     },
+    "contributors": [
+        "Jiří Zdvomka <zdvomka.j@gmail.com>"
+    ],
     "license": "Apache-2.0",
     "homepage": "https://github.com/AckeeCZ/react-final-form-redux-submit",
     "bugs": "https://github.com/AckeeCZ/react-final-form-redux-submit",
