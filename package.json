@@ -34,6 +34,9 @@
         "test": "jest",
         "version": "gitmoji-changelog && code --wait CHANGELOG.md && git add CHANGELOG.md"
     },
+    "peerDependencies": {
+        "final-form": "4.x"
+    },
     "devDependencies": {
         "@types/jest": "^27.0.1",
         "@typescript-eslint/eslint-plugin": "^4.29.2",
