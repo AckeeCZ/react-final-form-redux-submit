@@ -5291,11 +5291,6 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-redux-promise-listener@1.x:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/redux-promise-listener/-/redux-promise-listener-1.1.1.tgz#b305c59dfcce0c092cfe0a38bbee5d6b5d05489d"
-  integrity sha512-xMoRAHMS0ehqHp02Vi/EPyuT/L+CE7hg0p1PB1FxMOexmqJ31qKkspdl4exrWDEg0Lj+yRQVBnHHeiL24E8zmw==
-
 regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
