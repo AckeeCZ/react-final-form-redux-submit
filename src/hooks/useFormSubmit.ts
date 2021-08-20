@@ -4,9 +4,11 @@ import type { FormActionTypes, PayloadAction } from "../services/actions"
 import { submitFormFactory, ReduxAsyncHandler } from "../services/utils"
 
 interface ReduxPromiseListener {
-    createAsyncFunction: (config: object) => {
+    createAsyncFunction: <FormValues extends unknown = Record<string, any>>(
+        config: object
+    ) => {
         unsubscribe: () => void
-        asyncFunction: ReduxAsyncHandler
+        asyncFunction: ReduxAsyncHandler<FormValues>
     }
 }
 
@@ -22,7 +24,7 @@ export const useFormSubmitFactory =
         const { SUBMIT, SUCCESS, FAILURE } = types
         const onSubmit = useMemo(
             () =>
-                reduxPromiseListener.createAsyncFunction({
+                reduxPromiseListener.createAsyncFunction<FormValues>({
                     start: SUBMIT,
                     resolve: SUCCESS,
                     reject: FAILURE,
