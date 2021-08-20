@@ -15,7 +15,7 @@ interface ReduxPromiseListener {
 /**
  * Creates useFormSubmit hook connected to a Redux through middleware function specified in reduxPromiseListener object
  */
-export const useFormSubmitFactory =
+export const createFormSubmitHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
     <FormValues extends unknown = Record<string, any>>(
         types: FormActionTypes,

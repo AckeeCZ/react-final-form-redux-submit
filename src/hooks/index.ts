@@ -1,1 +1,1 @@
-export { useFormSubmitFactory } from "./useFormSubmit"
+export { createFormSubmitHook } from "./useFormSubmit"

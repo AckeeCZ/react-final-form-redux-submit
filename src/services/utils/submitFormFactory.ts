@@ -11,10 +11,10 @@ export const submitFormFactory =
     ) =>
     async (
         values: FormValues,
-        form?: FormApi
+        form?: FormApi<FormValues, Partial<FormValues>>
     ): Promise<undefined | Record<string, string>> => {
         try {
-            await reduxAsyncHandler(values, form)
+            await reduxAsyncHandler(values, form as any)
         } catch (payload) {
             const error: Record<string, string> | string =
                 payload?.error ?? payload
