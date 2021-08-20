@@ -1,3 +1,6 @@
+.idea
+.vscode
+
 # Logs
 logs
 *.log
@@ -71,6 +74,7 @@ typings/
 # dotenv environment variables file
 .env
 .env.test
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -102,3 +106,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+.nyc_output
+packages/*/dist
+packages/*/lib
