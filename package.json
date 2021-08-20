@@ -29,6 +29,7 @@
         "build:esm": "tsc -p tsconfig.json",
         "rebuild": "yarn build:esm",
         "clean": "rm -rf lib",
+        "prepare": "yarn build",
         "lint": "eslint src --ext .ts --config .eslintrc",
         "format": "prettier --config .prettierrc --write './src/**/*.ts'",
         "test": "jest",

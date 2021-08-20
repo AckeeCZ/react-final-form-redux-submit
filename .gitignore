@@ -113,3 +113,5 @@ packages/*/lib
 
 # Build
 lib
+
+.DS_Store
