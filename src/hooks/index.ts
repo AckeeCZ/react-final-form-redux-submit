@@ -1,1 +1,1 @@
-export { createFormSubmitHook } from "./useFormSubmit"
+export { createSubmitFormHook } from "./createSubmitFormHook"

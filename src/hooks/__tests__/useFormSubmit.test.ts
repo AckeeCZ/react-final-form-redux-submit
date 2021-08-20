@@ -1,7 +1,7 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
 import { FormActionTypes } from "../../services/actions"
-import { createFormSubmitHook } from "../useFormSubmit"
+import { createSubmitFormHook } from "../createSubmitFormHook"
 
 const reduxPromiseListener = {
     createAsyncFunction: jest.fn(),
@@ -14,7 +14,7 @@ const formSubmitTypes: FormActionTypes = {
     FAILURE: "SUBMIT_FAILURE",
 }
 
-const useFormSubmit = createFormSubmitHook(reduxPromiseListener)
+const useFormSubmit = createSubmitFormHook(reduxPromiseListener)
 
 describe("useFormSubmit", () => {
     const onSubmit = {

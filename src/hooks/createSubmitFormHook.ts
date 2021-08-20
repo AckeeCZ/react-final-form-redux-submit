@@ -15,7 +15,7 @@ interface ReduxPromiseListener {
 /**
  * Creates useFormSubmit hook connected to a Redux through middleware function specified in reduxPromiseListener object
  */
-export const createFormSubmitHook =
+export const createSubmitFormHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     <FormValues extends unknown = Record<string, any>>(
