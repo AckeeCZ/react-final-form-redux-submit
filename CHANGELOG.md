@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="1.0.0-beta.1"></a>
+## 1.0.0-beta.1 (2021-08-20)
+
+### Changed
+
+- 🔧 Decrement required engine version [[edae718](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/edae718cc89f921813bf03be2eb6f1dbb204a5bb)]
+
+
 <a name="1.0.0-beta.0"></a>
 ## 1.0.0-beta.0 (2021-08-20)
 
