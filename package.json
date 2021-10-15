@@ -67,6 +67,7 @@
         "yargs-parser": "^20.2.4",
         "mem": "<=4",
         "trim-newlines": "^3.0.1",
-        "npm-registry-fetch": "^4.0.5"
+        "npm-registry-fetch": "^4.0.5",
+        "ansi-regex": "^5.0.1"
     }
 }
