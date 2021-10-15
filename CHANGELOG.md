@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="1.0.1"></a>
+## 1.0.1 (2021-10-15)
+
+### Security
+
+- 🔒 Add security resolution for ansi-regex [[28b8902](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/28b890207fbf4561bec1cb1db0c129bebbaffebc)]
+
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2021-09-29)
 
