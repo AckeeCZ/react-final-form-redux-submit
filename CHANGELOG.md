@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="2.0.0-alpha.0"></a>
+## 2.0.0-alpha.0 (2021-10-16)
+
+### Added
+
+- ✨ Accept actions in useSubmitForm hook [[cd19f48](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/cd19f484dd0b658e7d3640cca921688a762fea9c)]
+- ✨ Add toString method for actions [[0ea511d](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/0ea511d6490ffd3b9f9d1b6810d0808c2626f01e)]
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2021-10-15)
 
