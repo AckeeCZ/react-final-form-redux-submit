@@ -1,6 +1,6 @@
 import type { FormActionTypes, FormActions } from "./types"
 
-const createFormActionTypes = (formPrefix: string): FormActionTypes => ({
+export const createFormActionTypes = (formPrefix: string): FormActionTypes => ({
     SUBMIT: `${formPrefix}_SUBMIT`,
     SUCCESS: `${formPrefix}_SUCCESS`,
     FAILURE: `${formPrefix}_FAILURE`,

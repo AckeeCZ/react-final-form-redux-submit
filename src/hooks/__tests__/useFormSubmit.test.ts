@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
-import { FormActionTypes } from "../../services/actions"
+import { createFormActions } from "../../services/actions"
 import { createSubmitFormHook } from "../createSubmitFormHook"
 
 const reduxPromiseListener = {
@@ -8,11 +8,7 @@ const reduxPromiseListener = {
     unsubscribe: jest.fn(),
 }
 
-const formSubmitTypes: FormActionTypes = {
-    SUBMIT: "SUBMIT",
-    SUCCESS: "SUBMIT_SUCCESS",
-    FAILURE: "SUBMIT_FAILURE",
-}
+const formActions = createFormActions("MY_FORM")
 
 const useFormSubmit = createSubmitFormHook(reduxPromiseListener)
 
@@ -30,7 +26,7 @@ describe("useFormSubmit", () => {
 
     it("returns submit form handler", () => {
         const { result } = renderHook<any, any>(() =>
-            useFormSubmit(formSubmitTypes)
+            useFormSubmit(formActions)
         )
 
         act(() => {
@@ -46,7 +42,7 @@ describe("useFormSubmit", () => {
 
     it("unsubscribes the handler on unmount", () => {
         const { unmount } = renderHook<any, any>(() =>
-            useFormSubmit(formSubmitTypes)
+            useFormSubmit(formActions)
         )
 
         act(() => {
