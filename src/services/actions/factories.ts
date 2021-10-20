@@ -1,4 +1,4 @@
-import type { FormActionTypes, FormActions, DefaultFormValues } from "./types"
+import type { FormActionTypes, FormActions } from "./types"
 
 export const createFormActionTypes = (formPrefix: string): FormActionTypes => ({
     SUBMIT: `${formPrefix}_SUBMIT`,
@@ -6,7 +6,7 @@ export const createFormActionTypes = (formPrefix: string): FormActionTypes => ({
     FAILURE: `${formPrefix}_FAILURE`,
 })
 
-export const createFormActions = <FormValues extends DefaultFormValues>(
+export const createFormActions = <FormValues extends unknown>(
     formPrefix: string
 ): FormActions<FormValues> => {
     const types = createFormActionTypes(formPrefix)

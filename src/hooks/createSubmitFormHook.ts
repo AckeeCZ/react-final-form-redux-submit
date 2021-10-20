@@ -1,14 +1,10 @@
 import { useMemo, useEffect } from "react"
 
-import type {
-    DefaultFormValues,
-    FormActions,
-    PayloadAction,
-} from "../services/actions"
+import type { FormActions, PayloadAction } from "../services/actions"
 import { submitFormFactory, ReduxAsyncHandler } from "../services/utils"
 
 interface ReduxPromiseListener {
-    createAsyncFunction: <FormValues extends unknown = DefaultFormValues>(
+    createAsyncFunction: <FormValues extends unknown>(
         config: Record<string, unknown>
     ) => {
         unsubscribe: () => void
@@ -22,7 +18,7 @@ interface ReduxPromiseListener {
 export const createSubmitFormHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    <FormValues extends DefaultFormValues>(
+    <FormValues extends unknown>(
         actions: FormActions<FormValues>,
         meta?: Record<string, any>
     ) => {
