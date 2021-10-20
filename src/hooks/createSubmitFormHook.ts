@@ -1,10 +1,10 @@
 import { useMemo, useEffect } from "react"
 
-import type { FormActionTypes, PayloadAction } from "../services/actions"
+import type { FormActions, PayloadAction } from "../services/actions"
 import { submitFormFactory, ReduxAsyncHandler } from "../services/utils"
 
 interface ReduxPromiseListener {
-    createAsyncFunction: <FormValues extends unknown = Record<string, any>>(
+    createAsyncFunction: <FormValues extends unknown>(
         config: Record<string, unknown>
     ) => {
         unsubscribe: () => void
@@ -18,17 +18,16 @@ interface ReduxPromiseListener {
 export const createSubmitFormHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    <FormValues extends unknown = Record<string, any>>(
-        types: FormActionTypes,
+    <FormValues extends unknown>(
+        actions: FormActions<FormValues>,
         meta?: Record<string, any>
     ) => {
-        const { SUBMIT, SUCCESS, FAILURE } = types
         const onSubmit = useMemo(
             () =>
                 reduxPromiseListener.createAsyncFunction<FormValues>({
-                    start: SUBMIT,
-                    resolve: SUCCESS,
-                    reject: FAILURE,
+                    start: actions.submit.toString(),
+                    resolve: actions.submitSuccess.toString(),
+                    reject: actions.submitFailure.toString(),
                     setPayload: (
                         action: PayloadAction,
                         payload: PayloadAction["payload"]
@@ -38,7 +37,7 @@ export const createSubmitFormHook =
                         meta,
                     }),
                 }),
-            [SUBMIT, SUCCESS, FAILURE, meta]
+            [actions, meta]
         )
 
         useEffect(() => {

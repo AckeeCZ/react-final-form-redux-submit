@@ -30,9 +30,7 @@ export type PayloadAction<
               error: E
           })
 
-export interface FormActions<
-    FormValues extends Record<string, string | number | boolean>
-> {
+export interface FormActions<FormValues> {
     submit: (
         values: FormValues,
         meta?: Record<string, any>

@@ -18,32 +18,14 @@ Final Form uses promises for submission. In case you use e.g. Redux Saga middlew
 
 First, you need to setup [Redux Promise Listener](https://github.com/erikras/redux-promise-listener#usage) and export its `promiseListener` object.
 
-### 2. Create action types
+### 2. Create action creators
 
-Then you create Redux action types that are called if a form is submitted. The package exports convenient helpers `createFormActionTypes` and `createFormActions` for that.
-
-```ts
-
-const formTypes: FormActionTypes = {
-    SUBMIT: 'MY_FORM_SUBMIT',
-    SUCCESS: 'MY_FORM_SUBMIT_SUCCESS',
-    FAILURE: 'MY_FORM_SUBMIT_FAILURE',
-};
-
-// or
-
-import { createFormActionTypes } from 'react-final-form-redux-submit'
-
-const formTypes = createFormActionTypes('MY_FORM');
-
-```
-
-You can also optionally create Redux actions e.g. to call from a saga on success / error
+Then you create Redux action creators that are dispatched when a form is submitted. The package exports convenient helpers `createFormActions` for that. Action creator functions have `toString` method that returns the action type (similar to Redux Toolkit API).
 
 ```ts
 import { createFormActions } from 'react-final-form-redux-submit'
 
-const formActions = createFormActions(types);
+const formActions = createFormActions('MY_FORM');
 ```
 
 ### 3. Create submit hook and use it in a form
@@ -57,12 +39,12 @@ import { Form } from 'react-final-form'
 import { createSubmitFormHook } from 'react-final-form-redux-submit'
 
 import { promiseListener } from './store'
-import { formTypes } from './types'
+import { formActions } from './types'
 
 const useSubmitForm = createSubmitFormHook(promiseListener)
 
-const MyForm: FunctionComponent<MyFormProps> = () => {
-    const onSubmit = useFormSubmit(formTypes);
+const MyForm = () => {
+    const onSubmit = useFormSubmit(formActions);
 
     return (
         <Form name="myform" onSubmit={onSubmit}>
@@ -77,34 +59,30 @@ const MyForm: FunctionComponent<MyFormProps> = () => {
 Now when the form is submitted `FORM_SUBMIT` action is dispatched with form values in `payload` and Redux saga can react to it with e.g. `takeEvery` effect. The form submit handler won't resolve until `SUCCESS` or `FAILURE` action is dispatched. Final form handles the form state like `submitting` flag or `errors`.
 
 ```ts
-import { formTypes, formSubmitSuccess, formSubmitFailure } from '../actions';
+import * as formActions from '../actions';
 
 function* handleFormSubmit(action: Action<FormValues>) {
     try {
         // Make API call or any other logic
         yield call(apiRequest, config.api.login, action.payload); 
-        yield put(formSubmitSuccess());
+        yield put(formActions.submitSuccess());
     } catch (error: Error) {
         const errorMessage = constructMessage(error);
-        yield put(formSubmitError(errorMessage));
+        yield put(formActions.submitFailure(errorMessage));
     }
 }
 
 export default function* form() {
-    yield takeEvery(formTypes.SUBMIT, handleFormSubmit);
+    yield takeEvery(formActions.submit.toString(), handleFormSubmit);
 }
 ```
 
 ## API
 
-### `createSubmitFormHook: (listener: ReduxPromiseListener) => (types: FormActionTypes) => Function`
+### `createSubmitFormHook: (listener: ReduxPromiseListener) => (actions: FormActions) => Function`
 
 A factory function for creating the hook that accepts `FormActionTypes` and returns `onSubmit` handler that can be passed to `Form`.
 
-### `createFormActionTypes(formPrefix: string, modulePrefix?: string): FormActionTypes`
+### `createFormActions(formPrefix: string): FormActions`
 
-An utility for creating `FormActionTypes` - an object with `SUBMIT`, `SUCCESS` and `FAILURE` action types.
-
-### `createFormActions(types: FormActionTypes): FormActions`
-
-An utility for creating `FormActions` for corresponding `FormActionTypes`.
+An utility for creating `FormActions`.
