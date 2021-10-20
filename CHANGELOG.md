@@ -1,6 +1,14 @@
 # Changelog
 
 
+<a name="2.0.0"></a>
+## 2.0.0 (2021-10-20)
+
+### Changed
+
+- 🏷️ Remove unknown extends [[666f5ea](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/666f5ea04cf90574ec3fd62b9411df12b3d32549)]
+
+
 <a name="2.0.0-alpha.0"></a>
 ## 2.0.0-alpha.0 (2021-10-16)
 

@@ -1,6 +1,6 @@
 {
     "name": "react-final-form-redux-submit",
-    "version": "2.0.0-alpha.3",
+    "version": "2.0.0",
     "description": "\"Bindings for submitting a form with a Redux action\"",
     "main": "lib/cjs/index.js",
     "module": "lib/esm/index.js",
