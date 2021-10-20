@@ -1,9 +1,6 @@
 # Changelog
 
 
-- 🏷️ Update generic type extend type [[c639128](https://github.com/AckeeCZ/react-final-form-redux-submit/commit/c639128a240e6c50f96c3b9fb2e70319665f7485)]
-
-
 <a name="2.0.0-alpha.0"></a>
 ## 2.0.0-alpha.0 (2021-10-16)
 
