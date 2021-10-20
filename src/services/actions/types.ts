@@ -8,6 +8,8 @@ export interface Action {
     type: string
 }
 
+export type DefaultFormValues = Record<string, any>
+
 // Copied from redux-toolkit
 export type PayloadAction<
     P = void,
@@ -30,9 +32,7 @@ export type PayloadAction<
               error: E
           })
 
-export interface FormActions<
-    FormValues extends Record<string, string | number | boolean>
-> {
+export interface FormActions<FormValues extends DefaultFormValues> {
     submit: (
         values: FormValues,
         meta?: Record<string, any>
