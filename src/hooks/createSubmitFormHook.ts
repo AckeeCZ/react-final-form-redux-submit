@@ -4,9 +4,7 @@ import type { FormActions, PayloadAction } from "../services/actions"
 import { submitFormFactory, ReduxAsyncHandler } from "../services/utils"
 
 interface ReduxPromiseListener {
-    createAsyncFunction: <FormValues extends unknown>(
-        config: Record<string, unknown>
-    ) => {
+    createAsyncFunction: <FormValues>(config: Record<string, unknown>) => {
         unsubscribe: () => void
         asyncFunction: ReduxAsyncHandler<FormValues>
     }
@@ -18,7 +16,7 @@ interface ReduxPromiseListener {
 export const createSubmitFormHook =
     (reduxPromiseListener: ReduxPromiseListener) =>
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-    <FormValues extends unknown>(
+    <FormValues>(
         actions: FormActions<FormValues>,
         meta?: Record<string, any>
     ) => {

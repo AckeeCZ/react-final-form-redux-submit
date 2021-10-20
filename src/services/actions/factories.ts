@@ -6,7 +6,7 @@ export const createFormActionTypes = (formPrefix: string): FormActionTypes => ({
     FAILURE: `${formPrefix}_FAILURE`,
 })
 
-export const createFormActions = <FormValues extends unknown>(
+export const createFormActions = <FormValues>(
     formPrefix: string
 ): FormActions<FormValues> => {
     const types = createFormActionTypes(formPrefix)
